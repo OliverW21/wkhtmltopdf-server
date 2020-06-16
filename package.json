@@ -1,0 +1,32 @@
+{
+  "name": "wkhtmltopdf-service",
+  "version": "1.0.0",
+  "description": "Wkhtmltopdf with HTTP api",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "forever --minUptime 5000 --spinSleepTime 3000 -a -l /var/log/pdf-generator/forever.log -o /var/log/pdf-generator/out.log -e /var/log/pdf-generator/err.log app.js",
+    "docker": "docker build -t pdf-generator . && docker run -t -e PORT='5580' -p 5580:5580 pdf-generator"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.15.2",
+    "child-process-promise": "^2.2.1",
+    "express": "^4.14.0",
+    "express-healthcheck": "^0.1.0",
+    "express-prom-bundle": "^2.1.0",
+    "express-status-monitor": "^0.1.2",
+    "forever": "^0.15.3",
+    "fs": "0.0.2",
+    "lodash": "^4.15.0",
+    "log4js": "^1.1.1",
+    "log4js-logstash": "^0.2.3",
+    "promisepipe": "^2.0.0",
+    "tempfile": "^1.1.1",
+    "svg2png": "^4.1.1",
+    "cheerio": "^0.22.0"
+  }
+}
