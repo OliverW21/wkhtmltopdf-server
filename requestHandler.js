@@ -136,7 +136,7 @@ class RequestHandler {
 					}
 				});
 
-				let svgString = $.html(svg).replace(new RegExp('font-family:.+?;', 'g'), "font-family: 'Open Sans', sans-serif;");
+				let svgString = $.html(svg).replace(new RegExp('font-family:.+?;', 'g'), "font-family: 'Helvetica', sans-serif;");
 
 				let svgBuffer = new Buffer.from(svgString, 'utf8');
 				let scaling = this.pngScale;
