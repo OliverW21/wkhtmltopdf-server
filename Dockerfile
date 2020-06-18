@@ -3,7 +3,7 @@ FROM node:12.16.2
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBIAN_PRIORITY critical
 ENV DEBCONF_NOWARNINGS yes
-ENV WKHTMLTOPDF_VERSION 0.12.5
+ENV WKHTMLTOPDF_VERSION 0.12.6
 ENV NODE_ENV production
 
 RUN apt-get -qq update && \
@@ -18,8 +18,7 @@ RUN echo "deb http://deb.debian.org/debian stretch contrib non-free" | tee -a /e
     apt-get clean && \
     fc-cache -rv
 
-
-RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb && \
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/${WKHTMLTOPDF_VERSION}-1/wkhtmltox_${WKHTMLTOPDF_VERSION}-1.stretch_amd64.deb && \
     dpkg -i wkhtmltox* && \
     rm wkhtmltox* && \
     apt-get clean
